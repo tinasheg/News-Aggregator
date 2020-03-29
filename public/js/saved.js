@@ -172,7 +172,6 @@ const deleteAllSaved = function () {
 
 };
 
-
 const deleteSavedArt = function () {
     const id = $(this).parent().attr("data-id");
 

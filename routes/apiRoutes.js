@@ -4,13 +4,13 @@ const cheerio = require("cheerio");
 
 module.exports = function (app) {
     app.get("/api/scrape", function (req, res) {
-        axios.get("https://www.npr.org/").then(function (response) {
+        axios.get("https://www.herald.co.zw/").then(function (response) {
             const $ = cheerio.load(response.data);
             const result = {};
-            $(".story-text").each(function (i, element) {
-                result.title = $(this).find(".title").text();
-                result.link = $(this).find(".title").parent().attr("href");
-                result.summary = $(this).find(".teaser").text();
+            $(".s-card-content").each(function (i, element) {
+                result.title = $(this).find(".entry-title").children().attr("title");
+                result.link = $(this).find("a").attr("href");
+                result.summary = $(this).find(".entry-summary").text().trim();
                 db.Article.remove({}, function (err) {
                     if (err) {
                         console.log(err)
