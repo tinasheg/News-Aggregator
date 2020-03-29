@@ -1,0 +1,27 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Zim News Aggregator</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a id="home" href="/">Home</a></li>
+      <li><a id="saved" href="/saved">Saved Articles</a></li>
+      <li><a class="waves-effect waves-light btn blue" id="newScrape">GET NEW ARTICLES!</a></li>
+      <li><a class="waves-effect waves-light btn blue" id="clearScrapedArticles">CLEAR SCRAPED ARTILCES</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="/">Home</a></li>
+  <li><a href="/saved">Saved Articles</a></li>
+</ul>
+
+<div class="container">
+  <ul class="collapsible popout" id="scrapeResults">
+    {{#each art}}
+    {{/each}}
+
+  </ul>
+</div>
+
+<script src="/js/index.js"></script>
